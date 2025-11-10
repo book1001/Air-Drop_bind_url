@@ -38,7 +38,25 @@
       }
     </style>
 
-    <p>Testing...</p>
-    <!-- <iframe class="iframe-full" src="https://air-drop-bind-rc492.ondigitalocean.app/viewer.html"></iframe> -->
+    <iframe id="viewPc" class="iframe-full" src="https://air-drop-bind-rc492.ondigitalocean.app"></iframe>
+    <iframe id="viewMobile" class="iframe-full" src="https://air-drop-bind-rc492.ondigitalocean.app/mobile.html"></iframe>
+
+    <script>
+      function checkDevice() {
+        const viewPc = document.getElementById('viewPc');
+        const viewMobile = document.getElementById('viewMobile');
+
+        if (window.innerWidth < 600) {
+          viewPc.style.display = 'none';
+          viewMobile.style.display = 'block';
+        } else {
+          viewPc.style.display = 'block';
+          viewMobile.style.display = 'none';
+        }
+      }
+
+      checkDevice();
+      window.addEventListener('resize', checkDevice);
+    </script>
   </body>
 </html>
